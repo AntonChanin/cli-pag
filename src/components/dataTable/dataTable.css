@@ -1,0 +1,40 @@
+.data-table-wrapper {
+  max-height: 765px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+table {
+ background-color: #3d4046;
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #666;
+}
+
+.first-col, .second-col {
+  border-right: 1px solid #666;
+}
+
+.first-col {
+  width: 33%;
+  text-align: initial;
+}
+
+.second-col {
+  width: 60%;
+}
+
+.third-col {
+  width: 40px;
+}
+
+td {
+  display: flex;
+  justify-content: flex-start;
+}
