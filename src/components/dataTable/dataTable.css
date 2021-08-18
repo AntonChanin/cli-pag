@@ -17,7 +17,7 @@ tr {
   border-bottom: 1px solid #666;
 }
 
-.first-col, .second-col {
+.first-col, .second-col, .first-col-head, .second-col-head {
   border-right: 1px solid #666;
 }
 
@@ -31,7 +31,20 @@ tr {
 }
 
 .third-col {
-  width: 40px;
+  width: 60px;
+}
+
+.first-col-head {
+  width: 32.6%;
+  text-align: initial;
+}
+
+.second-col-head {
+  width: 58%;
+}
+
+.third-col-head {
+  width: 60px;
 }
 
 td {

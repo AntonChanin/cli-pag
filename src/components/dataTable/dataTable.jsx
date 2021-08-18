@@ -23,7 +23,9 @@ export const DataTable = (props) => {
         <table>
           <thead>
             <tr>
-              <th>The table header</th>
+              <th className="first-col-head">Name</th>
+              <th className="second-col-head">Email</th>
+              <th className="third-col-head">Id</th>
             </tr>
           </thead>
           <tbody className="data-table-wrapper">
