@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { PageNav } from './pageNav/pageNav';
 import './dataTable.css';
 
-export const DataTable = (props) => {
+export const DataTable = () => {
   const [dynamicData, setDynamicData] = useState(null);
   const useFetch = url => {
-    //const [data, setData] = useState(null);
 
     async function fetchData() {
       const response = await fetch(url);
@@ -26,13 +25,12 @@ export const DataTable = (props) => {
     const dataBufer = data.concat();
     const sortedData = dataBufer.sort((a, b) => { return a[field] > b[field] ? 1 : -1 });
     order === false && sortedData.reverse();
-    console.log(field,);
     setDynamicData(sortedData);
   }
 
   return (
     <>
-      <div >
+      <div className="table-wrapper">
         <table>
           <thead>
             <tr>

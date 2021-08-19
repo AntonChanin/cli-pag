@@ -1,10 +1,19 @@
 .data-table-wrapper {
-  max-height: 765px;
+  max-height: 80vh;
   min-height: 280px;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
+  
+}
+
+.table-wrapper {
+  min-height: 280px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
 }
 
 table {
