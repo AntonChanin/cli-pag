@@ -17,7 +17,8 @@
 }
 
 table {
- background-color: #3d4046;
+  background-color: #3d4046;
+  max-width: 1170px;
 }
 
 tr {
@@ -40,7 +41,7 @@ tr {
 }
 
 .third-col {
-  width: 60px;
+  width: 104px;
 }
 
 .first-col-head {
@@ -53,7 +54,7 @@ tr {
 }
 
 .third-col-head {
-  width: 60px;
+  width: 120px;
 }
 
 td {
@@ -61,12 +62,9 @@ td {
   justify-content: flex-start;
 }
 
-th button {
-  color: #fff;
-  background-color: #0000;
-  border: 0;
-  font-size: 18px;
-  outline: 0;
-  width: 100%;
-  height: 100%;
+th {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
