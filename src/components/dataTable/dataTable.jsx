@@ -3,29 +3,48 @@ import { PageNav } from './pageNav/pageNav';
 import './dataTable.css';
 
 export const DataTable = (props) => {
-  const fetchJson = async (url) => {
-    const response = await fetch(url);
-    return response.json();
+  const [dynamicData, setDynamicData] = useState(null);
+  const useFetch = url => {
+    //const [data, setData] = useState(null);
+
+    async function fetchData() {
+      const response = await fetch(url);
+      const json = await response.json();
+      setDynamicData(json);
+    }
+
+    useEffect(() => { fetchData() }, [url]);
+
+    return dynamicData;
   };
-
-  const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
+  const data = useFetch("https://jsonplaceholder.typicode.com/comments");
+  let [orderName, setOrderName] = useState(true);
+  let [orderEmail, setOrderEmail] = useState(true);
+  let [orderId, setOrderId] = useState(false);
+  const sortData = (field, order) => {
+    const dataBufer = data.concat();
+    const sortedData = dataBufer.sort((a, b) => { return a[field] > b[field] ? 1 : -1 });
+    order === false && sortedData.reverse();
+    console.log(field,);
+    setDynamicData(sortedData);
+  }
 
-  useEffect(() => {
-    fetchJson("https://jsonplaceholder.typicode.com/comments")
-      .then((res) => {
-        setData(res);
-      });
-  }, []);
   return (
     <>
       <div >
         <table>
           <thead>
             <tr>
-              <th className="first-col-head">Name</th>
-              <th className="second-col-head">Email</th>
-              <th className="third-col-head">Id</th>
+              <th className="first-col-head" onClick={() => { sortData('name', orderName); setOrderName(!orderName); }}>
+                Name
+              </th>
+              <th className="second-col-head" onClick={() => { sortData('email', orderEmail); setOrderEmail(!orderEmail); }} >
+                Email
+              </th>
+              <th className="third-col-head" onClick={() => { sortData('id', orderId); setOrderId(!orderId); }}>
+                Id
+              </th>
             </tr>
           </thead>
           <tbody className="data-table-wrapper">

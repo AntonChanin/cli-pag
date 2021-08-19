@@ -6,7 +6,7 @@ export const PageNav = (props) => {
   return (
     <div className="page-nav">
       {pages.map(page => {
-        return (<button className="page-nav-item" key={page} data-page={page} onClick={() => { props.setPage(page) }}>{page}</button>)
+        return (<button className="page-nav-item" key={page} onClick={() => { props.setPage(page) }}>{page}</button>)
       })}
     </div>
   );
