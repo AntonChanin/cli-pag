@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PageNav } from '../pageNav/pageNav';
 import { FilterInput } from '../filterInput/filterInput';
 import './dataTable.css';
