@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { PageNav } from '../pageNav/pageNav';
 import { FilterInput } from '../filterInput/filterInput';
 import './dataTable.css';
@@ -30,6 +30,27 @@ export const DataTable = () => {
     setDynamicData(sortedData);
   }
 
+  const nameSort = useCallback(() => {
+    sortData('name', orderName);
+    setOrderName(!orderName);
+    setOrderEmail(1);
+    setOrderId(1);
+  }, [sortData, orderName])
+
+  const emailSort = useCallback(() => {
+    sortData('email', orderEmail);
+    setOrderEmail(!orderEmail);
+    setOrderName(1);
+    setOrderId(1);
+  }, [sortData, orderEmail])
+
+  const idSort = useCallback(() => {
+    sortData('id', orderId);
+    setOrderId(!orderId);
+    setOrderName(1);
+    setOrderEmail(1);
+  }, [sortData, orderId]);
+
   return (
     <>
       <FilterInput data={dynamicData} setData={setDynamicData} useFetch={useFetch} />
@@ -37,13 +58,13 @@ export const DataTable = () => {
         <table>
           <thead>
             <tr>
-              <th className="first-col-head" onClick={() => { sortData('name', orderName); setOrderName(!orderName); setOrderEmail(1); setOrderId(1) }}>
+              <th className="first-col-head" onClick={nameSort}>
                 {`Name ${orderName !== 1 ? (orderName ? '(desc)' : '(asc)') : ''}`}
               </th>
-              <th className="second-col-head" onClick={() => { sortData('email', orderEmail); setOrderEmail(!orderEmail); setOrderName(1); setOrderId(1) }} >
+              <th className="second-col-head" onClick={emailSort} >
                 {`Email ${orderEmail !== 1 ? (orderEmail ? '(desc)' : '(asc)') : ''}`}
               </th>
-              <th className="third-col-head" onClick={() => { sortData('id', orderId); setOrderId(!orderId); setOrderName(1); setOrderEmail(1); }}>
+              <th className="third-col-head" onClick={idSort}>
                 {`Id ${orderId !== 1 ? (orderId ? '(desc)' : '(asc)') : ('')}`}
               </th>
             </tr>
