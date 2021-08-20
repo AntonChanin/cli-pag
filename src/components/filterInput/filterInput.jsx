@@ -9,7 +9,6 @@ export const FilterInput = (props) => {
         const json = await res.json();
         if (value) {
           props.setData(json.filter(({ name, email, id }) => {
-            console.table(json)
             return `${name}`.includes(value) || `${email}`.includes(value) || `${id}`.includes(value)
           }))
         } else {
@@ -26,7 +25,7 @@ export const FilterInput = (props) => {
         const value = e.target.value;
         const data = updateFetch("https://jsonplaceholder.typicode.com/comments", value);
         props.setData(data);
-      }} />
+      }} placeholder="filter..." />
     </div>
   );
 };
