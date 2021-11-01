@@ -9,8 +9,8 @@ export const FilterInput = (props) => {
         const json = await res.json();
         if (value) {
           props.setData(json.filter(({ name, email, id }) => {
-            return `${name}`.includes(value) || `${email}`.includes(value) || `${id}`.includes(value)
-          }))
+            return `${name}`.includes(value) || `${email}`.includes(value) || `${id}`.includes(value);
+          }));
         } else {
           props.setData(json);
         }

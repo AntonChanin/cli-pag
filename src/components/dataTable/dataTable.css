@@ -40,6 +40,10 @@ tr {
   width: 60%;
 }
 
+.empty-col {
+  color: #0000;
+}
+
 .third-col {
   width: 104px;
 }
